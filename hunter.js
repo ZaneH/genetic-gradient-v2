@@ -34,7 +34,7 @@ var logBox;
 var infoBox;
 var finalBox;
 
-lwip.open("demo.jpg", function(err, image) {
+lwip.open("sunburst.jpg", function(err, image) {
 	if (err) return console.log(err);
 
 	// now is as good a time as any to run this
@@ -113,6 +113,34 @@ lwip.open("demo.jpg", function(err, image) {
 		}
 	}
 	logBox.log("Final result calculated");
+
+	// output the result to a new image with a dot on the result
+	image.setPixel(result[0][0], result[0][1], "red", function() {
+		image.setPixel(result[0][0] - 1, result[0][1], "red", function() {
+			image.setPixel(result[0][0] + 1, result[0][1], "red", function() {
+				image.setPixel(result[0][0], result[0][1] - 1, "red", function() {
+					image.setPixel(result[0][0], result[0][1] + 1, "red", function() {
+						image.setPixel(result[0][0] - 1, result[0][1] - 1, "red", function() {
+							image.setPixel(result[0][0] + 1, result[0][1] - 1, "red", function() {
+								image.setPixel(result[0][0] + 1, result[0][1] + 1, "red", function() {
+									image.setPixel(result[0][0] - 1, result[0][1] + 1, "red", function() {
+										image.writeFile("gg-ouput.jpg", "jpg", new Object(), function() {
+											/*
+											I really hope this is an inefficient way of drawing a square.
+											If JavaScript commonly looks like this...
+											*/
+											logBox.log("Result mapped onto gg-output.jpg");
+										});
+									});
+								});
+							});
+						});
+					});
+				});
+			});
+		});
+	});
+
 	updateTerminalContent();
 
 	function addFitnessCalculations() {
