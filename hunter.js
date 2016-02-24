@@ -129,7 +129,7 @@ lwip.open("demo.png", function(err, image) {
 											I really hope this is an inefficient way of drawing a square.
 											If JavaScript commonly looks like this...
 											*/
-											logBox.log("Result mapped onto gg-output.jpg");
+											logBox.log("Result mapped onto gg-output.png");
 										});
 									});
 								});
