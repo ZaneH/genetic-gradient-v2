@@ -9,7 +9,7 @@ This program attempts to find the center of a gradient (or any desired color wit
 </p>
 
 # Efficiency
+This graph attempts to demonstrate where the algorithm is placing the next "species". (X & Y space)
 <p align="center">
-  This graph attempts to demonstrate where the algorithm is placing the next "species".
   <img src="http://i.imgur.com/kZUJyBP.png" />
 </p>
